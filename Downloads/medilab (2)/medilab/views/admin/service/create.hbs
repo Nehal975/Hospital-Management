@@ -1,0 +1,116 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Create Service <a href="/admin/service"><i
+                        class="fa fa-arrow-left-long text-light float-end"></i></a></h5>
+            <form action="/admin/service/store" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label>Title*</label>
+                    <input type="text" name="title" value="{{data.title}}" placeholder="Service Title"
+                        class="form-control border-3 {{#if errorMessage.title}} border-danger {{else}} border-primary {{/if}}">
+                    {{#if errorMessage.title}}
+                    <p class="text-danger">{{errorMessage.title}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="mb-3">
+                    <label>Seo URL*</label>
+                    <input type="text" name="seoUrl" value="{{data.seoUrl}}" placeholder="Service Seo Url"
+                        class="form-control border-3 {{#if errorMessage.seoUrl}} border-danger {{else}} border-primary {{/if}}">
+                    {{#if errorMessage.seoUrl}}
+                    <p class="text-danger">{{errorMessage.seoUrl}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Icon*</label>
+                        <input type="text" name="icon" value="{{data.icon}}" placeholder="Service Icon Tag"
+                            class="form-control border-3 {{#if errorMessage.icon}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.icon}}
+                        <p class="text-danger">{{errorMessage.icon}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Cover Pic*</label>
+                        <input type="file" name="cover"
+                            class="form-control border-3 {{#if errorMessage.cover}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.cover}}
+                        <p class="text-danger">{{errorMessage.cover}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Short Description*</label>
+                    <div
+                        class="form-control border-3 {{#if errorMessage.shortDescription}} border-danger {{else}} border-primary {{/if}}">
+                        <textarea name="shortDescription" id="div_editor1" placeholder="Service Short Description"
+                            rows="3" class="form-control border-3">{{data.shortDescription}}</textarea>
+                        {{#if errorMessage.shortDescription}}
+                    </div>
+                    <p class="text-danger">{{errorMessage.shortDescription}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="mb-3">
+                    <label>Long Description*</label>
+                    <div class="form-control border-3 {{#if errorMessage.longDescription}} border-danger {{else}}
+                        border-primary {{/if}}">
+                        <textarea name="longDescription" id="div_editor2" placeholder="Service Long Description"
+                            rows="7">{{data.longDescription}}</textarea>
+                    </div>
+                    {{#if errorMessage.longDescription}}
+                    <p class="text-danger">{{errorMessage.longDescription}}</p>
+                    {{/if}}
+                </div>
+
+
+                <div class="mb-3">
+                    <label>Meta Title</label>
+                    <input type="text" name="metaTitle" value="{{data.metaTitle}}" placeholder="Service Meta Title"
+                        rows="3" class="form-control border-3  border-primary">
+                </div>
+
+                <div class="mb-3">
+                    <label>Meta Description</label>
+                    <textarea name="metaDescription" placeholder="Service Meta Description" rows="5"
+                        class="form-control border-3  border-primary">{{data.metaDescription}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label>Meta Keywords</label>
+                    <textarea name="metaKeywords" placeholder="Service Meta Keywords" rows="5"
+                        class="form-control border-3  border-primary">{{data.metaKeywords}}</textarea>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Sort Order*</label>
+                        <input type="number" name="sortOrder" placeholder="Sort Order" value="{{data.sortOrder}}"
+                            class="form-control border-3 border-primary">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Active*</label>
+                        <select name="active" class="form-select border-3 border-primary">
+                            <option value="1" {{dropdownHelper data.active '1' }}>Yes</option>
+                            <option value="0" {{dropdownHelper data.active '0' }}>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

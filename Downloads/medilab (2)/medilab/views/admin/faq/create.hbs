@@ -1,0 +1,58 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Create FAQ <a href="/admin/faq"><i
+                        class="fa fa-arrow-left-long text-light float-end"></i></a></h5>
+            <form action="/admin/faq/store" method="post">
+                <div class="mb-3">
+                    <label>Question*</label>
+                    <input type="text" name="question" value="{{data.question}}" placeholder="Question"
+                        class="form-control border-3 {{#if errorMessage.question}} border-danger {{else}} border-primary {{/if}}">
+                    {{#if errorMessage.question}}
+                    <p class="text-danger">{{errorMessage.question}}</p>
+                    {{/if}}
+                </div>
+
+
+                <div class="mb-3">
+                    <label>Answer*</label>
+                    <div class="form-control border-3 {{#if errorMessage.longanswer}} border-danger {{else}}
+                        border-primary {{/if}}">
+                        <textarea name="answer" id="div_editor1" placeholder="Answer"
+                            rows="7">{{data.answer}}</textarea>
+                    </div>
+                    {{#if errorMessage.answer}}
+                    <p class="text-danger">{{errorMessage.answer}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Sort Order*</label>
+                        <input type="number" name="sortOrder" placeholder="Sort Order" value="{{data.sortOrder}}"
+                            class="form-control border-3 border-primary">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Active*</label>
+                        <select name="active" class="form-select border-3 border-primary">
+                            <option value="1" {{dropdownHelper data.active '1' }}>Yes</option>
+                            <option value="0" {{dropdownHelper data.active '0' }}>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

@@ -1,0 +1,50 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">ContactUs Query <a href="/admin/contactus"><i
+                        class="fa fa-arrow-left-long text-light float-end"></i></a></h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{data._id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td>{{data.name}}</td>
+                        </tr>
+                         <tr>
+                            <th>Email</th>
+                            <td>{{data.email}}</td>
+                        </tr>
+                         <tr>
+                            <th>Phone</th>
+                            <td>{{data.phone}}</td>
+                        </tr>
+                         <tr>
+                            <th>Subject</th>
+                            <td>{{data.subject}}</td>
+                        </tr>
+                         <tr>
+                            <th>Message</th>
+                            <td>{{data.message}}</td>
+                        </tr>
+                        <tr>
+                            <th>Active</th>
+                            <td>{{activeHelper data.active}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

@@ -1,0 +1,93 @@
+<header id="header" class="header sticky-top">
+
+    <div class="topbar d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <a href="mailto:{{emailHelper}}" class="text-light d-flex me-3">
+                    <i class="bi bi-envelope d-flex align-items-center"></i>
+                    <span class="d-none d-md-block">&nbsp;&nbsp;{{emailHelper}}</span>
+                </a>
+                <a href="tel:{{phoneHelper}}" class="text-light d-flex me-3">
+                    <i class="bi bi-phone d-flex align-items-center"></i>
+                    <span class="d-none d-md-block">&nbsp;&nbsp;{{phoneHelper}}</span>
+                </a>
+                <a href="mailto:{{whatsappHelper}}" class="text-light d-flex me-3">
+                    <i class="bi bi-whatsapp d-flex align-items-center"></i>
+                    <span class="d-none d-md-block">&nbsp;&nbsp;{{whatsappHelper}}</span>
+                </a>
+            </div>
+            <div class="social-links d-md-flex align-items-center">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </div><!-- End Top Bar -->
+
+    <div class="branding d-flex align-items-center">
+
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+            <a href="/" class="logo d-flex align-items-center me-auto">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1 class="sitename">{{titleHelper title}}</h1>
+            </a>
+
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                    <li><a href="/" class="{{activeURLHelper currentUrl '/'}}">Home<br></a></li>
+                    <li><a href="/about" class="{{activeURLHelper currentUrl '/about'}}">About</a></li>
+                    <li><a href="/service" class="{{activeURLHelper currentUrl '/service'}}">Services</a></li>
+                    <li><a href="/department" class="{{activeURLHelper currentUrl '/department'}}">Departments</a></li>
+                    <li><a href="/doctor" class="{{activeURLHelper currentUrl '/doctor'}}">Doctors</a></li>
+                    <li><a href="/faq" class="{{activeURLHelper currentUrl '/faq'}}">Faq</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a href="#" class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">Other </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/testimonial"
+                                        class="{{activeURLHelper currentUrl '/testimonial'}}">Testimonial</a>
+                                </li>
+                                <li><a href="/gallery" class="{{activeURLHelper currentUrl '/gallery'}}">Gallery</a>
+                                </li>
+
+                                <li><a href="/contactus" class="{{activeURLHelper currentUrl '/contactus'}}">Contact</a>
+                                </li>
+                                <li><a href="/admin" class="{{activeURLHelper currentUrl '/admin'}}">Admin</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+
+            <a class="cta-btn d-none d-sm-block" href="/appointment">Make an Appointment</a>
+            <nav id="navmenu" class="navmenu me-5">
+                <ul>
+                    {{#if session.login }}
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">{{session.name}}</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/admin">Profile</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    {{else}}
+                    <li><a href="/login" class="{{activeURLHelper currentUrl '/login'}}">Login</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main class="main">

@@ -1,0 +1,33 @@
+<!-- Gallery Section -->
+<section id="gallery" class="gallery section">
+
+    <div class="my-container">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Gallery</h2>
+            <p>Our gallery showcases images of MediLab’s advanced facilities, modern equipment, expert doctors, and patient care moments, giving you a glimpse into our professional and compassionate healthcare environment.</p>
+        </div><!-- End Section Title -->
+
+        <div class="container-fluid" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row g-0">
+
+                {{#each gallery}}
+                <div class="col-lg-3 col-md-4">
+                    <div class="gallery-item">
+                        <a href="/{{pic}}" class="glightbox" data-gallery="images-gallery">
+                            <img src="/{{pic}}" alt="" class="img-fluid">
+                        </a>
+                    </div>
+                </div><!-- End Gallery Item -->
+                {{/each}}
+            </div>
+
+        </div>
+        <div class="text-center">
+            {{#if (urlHelper currentUrl '/')}}
+            <a href="/gallery" class="btn btn-primary w-50 m-auto my-3">View All Gallery Images</a>
+            {{/if}}
+        </div>
+    </div>
+</section><!-- /Gallery Section -->

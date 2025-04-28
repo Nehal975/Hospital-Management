@@ -1,0 +1,61 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Contact Us Queries</h5>
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-borderd table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Active</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{name}}</td>
+                            <td>{{email}}</td>
+                            <td>{{phone}}</td>
+                            <td>
+                                <div class="contactus-subject">
+                                    {{subject}}
+                                </div>
+                            </td>
+                            <td>{{timeHelper createdAt}}</td>
+                            <td onclick="window.open('/admin/contactus/edit/{{_id}}','_self')"
+                                style="cursor: pointer;">{{activeHelper active}}</td>
+                            <td>
+                                <a href="/admin/contactus/show/{{_id}}" class="btn btn-primary"><i
+                                        class="fa fa-eye"></i></a>
+                            </td>
+                            <td>
+                                {{#if active}}
+                                {{else}}
+                                <a href="/admin/contactus/delete/{{_id}}" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></a>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

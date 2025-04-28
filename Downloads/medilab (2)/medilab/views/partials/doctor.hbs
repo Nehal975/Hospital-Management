@@ -1,0 +1,49 @@
+<!-- Doctors Section -->
+<section id="doctors" class="doctors section">
+    <div class="my-container">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Doctors</h2>
+            <p>Our doctors at MediLab are highly qualified, experienced, and compassionate professionals dedicated to providing specialized, patient-centered care across all major medical departments.</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                {{#each doctors}}
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-member d-flex align-items-start">
+                        <div class="pic"><img src="/{{pic}}" class="img-fluid" alt=""></div>
+                        <div class="member-info">
+                            <h4>{{name}}</h4>
+                            <span>{{designation}}</span>
+                            <div class="doctor-description">{{{description}}}</div>
+                            <div class="social">
+                                <a href=""><i class="bi bi-twitter-x"></i></a>
+                                <a href=""><i class="bi bi-facebook"></i></a>
+                                <a href=""><i class="bi bi-instagram"></i></a>
+                                <a href=""> <i class="bi bi-linkedin"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+                {{/each}}
+
+            </div>
+            <div class="text-center">
+                {{#if (urlHelper currentUrl '/')}}
+                <a href="/doctor" class="btn btn-primary w-50 m-auto my-3">View All Doctors</a>
+                {{/if}}
+                {{#if (urlHelper currentUrl '/about')}}
+                <a href="/doctor" class="btn btn-primary w-50 m-auto my-3">View All Doctors</a>
+                {{/if}}
+                {{#if (urlHelper currentUrl '/department')}}
+                <a href="/doctor" class="btn btn-primary w-50 m-auto my-3">View All Doctors</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+
+</section><!-- /Doctors Section -->

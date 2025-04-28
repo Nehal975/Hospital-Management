@@ -1,0 +1,56 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Testimonial <a href="/admin/testimonial/create"><i
+                        class="fa fa-plus text-light float-end"></i></a></h5>
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-borderd table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Pic</th>
+                            <th>Message</th>
+                            <th>Sort Order</th>
+                            <th>Active</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{name}}</td>
+                            <td>
+                                <a href="/{{pic}}" target="_blank">
+                                    <img src="/{{pic}}" height="80px" width="80px" alt="">
+                                </a>
+                            </td>
+                            <td>
+                                <div class="table-message">
+                                    {{message}}
+                                </div>
+                            </td>
+                            <td>{{sortOrder}}</td>
+                            <td>{{activeHelper active}}</td>
+                            <td><a href="/admin/testimonial/edit/{{_id}}" class="btn btn-primary"><i
+                                        class="fa fa-edit"></i></a></td>
+                            <td><a href="/admin/testimonial/delete/{{_id}}" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

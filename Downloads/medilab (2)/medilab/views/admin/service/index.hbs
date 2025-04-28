@@ -1,0 +1,59 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Service <a href="/admin/service/create"><i
+                        class="fa fa-plus text-light float-end"></i></a></h5>
+            <div class="table-responsive">
+                <table id="dataTable" class="table table-borderd table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Sero Url</th>
+                            <th>Sort Order</th>
+                            <th>Icon</th>
+                            <th>Cover</th>
+                            <th>Active</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>
+                                <div class="table-title">{{title}}</div>
+                            </td>
+                            <td>{{seoUrl}}</td>
+                            <td>{{sortOrder}}</td>
+                            <td>{{{icon}}}</td>
+                            <td>
+                                <a href="/{{cover}}" target="_blank">
+                                    <img src="/{{cover}}" height="80px" width="80px" alt="">
+                                </a>
+                            </td>
+                            <td>{{activeHelper active}}</td>
+                            <td><a href="/admin/service/show/{{_id}}" class="btn btn-success"><i
+                                        class="fa fa-eye"></i></a></td>
+                            <td><a href="/admin/service/edit/{{_id}}" class="btn btn-primary"><i
+                                        class="fa fa-edit"></i></a></td>
+                            <td><a href="/admin/service/delete/{{_id}}" class="btn btn-danger"><i
+                                        class="fa fa-trash"></i></a></td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

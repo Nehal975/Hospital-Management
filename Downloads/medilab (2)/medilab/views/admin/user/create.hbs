@@ -1,0 +1,92 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Create User <a href="/admin/user"><i
+                        class="fa fa-arrow-left-long text-light float-end"></i></a></h5>
+            <form action="/admin/user/store" method="post">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Name*</label>
+                        <input type="text" name="name" value="{{data.name}}" placeholder="Full Name"
+                            class="form-control border-3 {{#if errorMessage.name}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.name}}
+                        <p class="text-danger">{{errorMessage.name}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Phone*</label>
+                        <input type="text" name="phone" value="{{data.phone}}" placeholder="Phone Number"
+                            class="form-control border-3 {{#if errorMessage.phone}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.phone}}
+                        <p class="text-danger">{{errorMessage.phone}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>User Name*</label>
+                        <input type="text" name="username" value="{{data.username}}" placeholder="User Name"
+                            class="form-control border-3 {{#if errorMessage.username}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.username}}
+                        <p class="text-danger">{{errorMessage.username}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Email*</label>
+                        <input type="email" name="email" value="{{data.email}}" placeholder="Email Address"
+                            class="form-control border-3 {{#if errorMessage.email}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.email}}
+                        <p class="text-danger">{{errorMessage.email}}</p>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Password*</label>
+                        <input type="password" name="password" value="{{data.password}}" placeholder="Password"
+                            class="form-control border-3 {{#if errorMessage.password}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.password}}
+                        <p class="text-danger">{{errorMessage.password}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label>Confirm Password*</label>
+                        <input type="password" name="cpassword" value="{{data.password}}" placeholder="password Address"
+                            class="form-control border-3 {{#if errorMessage.password}} border-danger {{else}} border-primary {{/if}}">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Role*</label>
+                        <select name="role" class="form-select border-3 border-primary">
+                            <option value="Admin" {{dropdownHelper data.role 'Admin' }}>Admin</option>
+                            <option value="Super Admin" {{dropdownHelper data.role 'Super Admin' }}>Super Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Active*</label>
+                        <select name="active" class="form-select border-3 border-primary">
+                            <option value="1" {{dropdownHelper data.active '1' }}>Yes</option>
+                            <option value="0" {{dropdownHelper data.active '0' }}>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

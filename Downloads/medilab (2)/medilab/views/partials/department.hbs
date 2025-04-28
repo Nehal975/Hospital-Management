@@ -1,0 +1,51 @@
+<!-- Departments Section -->
+<section id="departments" class="departments section">
+    <div class="my-container">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Departments</h2>
+            <p>Our departments at MediLab include Cardiology, Neurology, Pediatrics, Hepatology, Physiotherapy, and Eye
+                Care, offering specialized treatments, advanced diagnostics, and expert medical care for comprehensive
+                patient well-being.</p>
+        </div><!-- End Section Title -->
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <ul class="nav nav-tabs flex-column">
+                        {{#each departments}}
+                        <li class="nav-item">
+                            <a class="nav-link  {{#if @first}}active show{{/if}}" data-bs-toggle="tab"
+                                href="#{{_id}}">{{title}}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="col-lg-9 mt-4 mt-lg-0">
+                    <div class="tab-content">
+                        {{#each departments}}
+                        <div class="tab-pane {{#if @first}}active show{{/if}}" id="{{_id}}">
+                            <div class="row">
+                                <div class="col-lg-8 details order-2 order-lg-1">
+                                    <div class="department-description">
+                                        {{{description}}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 text-center order-1 order-lg-2">
+                                    <img src="/{{cover}}" alt="" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                {{#if (urlHelper currentUrl '/')}}
+                <a href="/department" class="btn btn-primary w-50 m-auto my-3">View All Departments</a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</section><!-- /Departments Section -->

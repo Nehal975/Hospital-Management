@@ -1,0 +1,114 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Update Doctor <a href="/admin/doctor"><i
+                        class="fa fa-arrow-left-long text-light float-end"></i></a></h5>
+            <form action="/admin/doctor/update/{{data._id}}" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label>Name*</label>
+                        <input type="text" name="name" value="{{data.name}}" placeholder="Doctor Name"
+                            class="form-control border-3 {{#if errorMessage.name}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.name}}
+                        <p class="text-danger">{{errorMessage.name}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Department*</label>
+                        <select name="department" class="form-select border-3 border-primary">
+                            {{#each departments}}
+                            <option value="{{_id}}" {{dropdownHelper ../data.department _id }}>{{title}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label>Designation*</label>
+                    <input type="text" name="designation" value="{{data.designation}}" placeholder="Doctor Designation"
+                        class="form-control border-3 {{#if errorMessage.designation}} border-danger {{else}} border-primary {{/if}}">
+                    {{#if errorMessage.designation}}
+                    <p class="text-danger">{{errorMessage.designation}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="mb-3">
+                    <label>Description*</label>
+                    <div class="form-control border-3 {{#if errorMessage.longDescription}} border-danger {{else}}
+                        border-primary {{/if}}">
+                        <textarea name="description" id="div_editor1" placeholder="Doctor Description"
+                            rows="7">{{data.description}}</textarea>
+                    </div>
+                    {{#if errorMessage.description}}
+                    <p class="text-danger">{{errorMessage.description}}</p>
+                    {{/if}}
+                </div>
+
+                <div class="mb-3">
+                    <label>Twitter Profile URL*</label>
+                    <input type="url" name="twitter" value="{{data.twitter}}" placeholder="Doctor Twitter Profile URL"
+                        class="form-control border-3 border-primary">
+                </div>
+
+                <div class="mb-3">
+                    <label>Facebook Profile URL*</label>
+                    <input type="url" name="facebook" value="{{data.facebook}}"
+                        placeholder="Doctor Facebook Profile URL" class="form-control border-3 border-primary">
+                </div>
+
+                <div class="mb-3">
+                    <label>Instagram Profile URL*</label>
+                    <input type="url" name="instagram" value="{{data.instagram}}"
+                        placeholder="Doctor Instagram Profile URL" class="form-control border-3 border-primary">
+                </div>
+
+                <div class="mb-3">
+                    <label>LinkedIn Profile URL*</label>
+                    <input type="url" name="linkedin" value="{{data.linkedin}}"
+                        placeholder="Doctor LinkedIn Profile URL" class="form-control border-3 border-primary">
+                </div>
+
+                <div class="mb-3">
+                    <label>Youtube Profile URL*</label>
+                    <input type="url" name="youtube" value="{{data.youtube}}" placeholder="Doctor Youtube Profile URL"
+                        class="form-control border-3 border-primary">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Pic*</label>
+                        <input type="file" name="pic"
+                            class="form-control border-3 {{#if errorMessage.pic}} border-danger {{else}} border-primary {{/if}}">
+                        {{#if errorMessage.pic}}
+                        <p class="text-danger">{{errorMessage.pic}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Sort Order*</label>
+                        <input type="number" name="sortOrder" placeholder="Sort Order" value="{{data.sortOrder}}"
+                            class="form-control border-3 border-primary">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Active*</label>
+                        <select name="active" class="form-select border-3 border-primary">
+                            <option value="1" {{dropdownHelper data.active '1' }}>Yes</option>
+                            <option value="0" {{dropdownHelper data.active '0' }}>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

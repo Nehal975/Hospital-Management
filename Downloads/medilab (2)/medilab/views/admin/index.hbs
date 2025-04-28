@@ -1,0 +1,55 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Admin</h5>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    {{#if data.pic }}
+                    <img src="/{{data.pic}}" height="250px" width="100%" alt="">
+                    {{else}}
+                    <img src="/assets/img/noimage.png" height="250px" width="100%" alt="">
+                    {{/if}}
+                </div>
+                <div class="col-md-6">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <td>{{data.name}}</td>
+                            </tr>
+                            <tr>
+                                <th>User Name</th>
+                                <td>{{data.username}}</td>
+                            </tr>
+                            <tr>
+                                <th>Eamil Address</th>
+                                <td>{{data.email}}</td>
+                            </tr>
+                            <tr>
+                                <th>Phone Number</th>
+                                <td>{{data.phone}}</td>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <td>{{data.role}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <a href="/admin/user/update-profile" class="btn btn-primary w-100">Update Profile</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

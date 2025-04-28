@@ -1,0 +1,68 @@
+{{>header}}
+{{>navbar}}
+
+<div class="container-fluid my-3">
+    <div class="row">
+        <div class="col-md-3">
+            {{>adminSidebar}}
+        </div>
+        <div class="col-md-9">
+            <h5 class="text-center bg-primary text-light p-2">Department <a href="/admin/department"><i
+                        class="fa fa-arrow-left-long text-light float-end"></i></a></h5>
+            <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{data._id}}</td>
+                        </tr>
+                        <tr>
+                            <th>Title</th>
+                            <td>{{data.title}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <a href="/{{data.cover}}" target="_blank">
+                                    <img src="/{{data.cover}}" height="300px" width="300px" alt="">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>{{{data.description}}}</td>
+                        </tr>
+                        <tr>
+                            <th>Sort Order</th>
+                            <td>{{data.sortOrder}}</td>
+                        </tr>
+                        <tr>
+                            <th>Active</th>
+                            <td>{{activeHelper data.active}}</td>
+                        </tr>
+                        <tr>
+                            <th>Created At/Created By</th>
+                            <td>{{timeHelper data.createdAt}} - {{data.createdBy}}</td>
+                        </tr>
+                        <tr>
+                            <th>Updated At/Updated By</th>
+                            <td>
+                                <h6>Update Timeline</h6>
+                                <ul>
+                                    {{#each data.updatedBy}}
+                                    <li> {{timeHelper time}} : {{user}}</li>
+                                    {{/each}}
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><a href="/admin/department/edit/{{data._id}}"
+                                    class="btn btn-primary w-100">Update</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{>footer}}

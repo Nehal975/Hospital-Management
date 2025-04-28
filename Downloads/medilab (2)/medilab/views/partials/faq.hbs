@@ -1,0 +1,58 @@
+<!-- Faq Section -->
+<section id="faq" class="faq section light-background">
+
+    <div class="my-container">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+            <p>Our FAQs section addresses common patient queries across departments like Cardiology, Pediatrics,
+                Neurology,
+                and more—offering clear, expert answers to help you make informed healthcare decisions at MediLab.</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-10" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion" id="accordionExample">
+                        {{#each faqs}}
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button {{#if @first}}{{else}}collapsed{{/if}}" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse{{_id}}" aria-expanded="true"
+                                    aria-controls="collapse{{_id}}">
+                                    {{question}}
+                                </button>
+                            </h2>
+                            <div id="collapse{{_id}}" class="accordion-collapse collapse   {{#if @first}}show{{/if}}"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {{{answer}}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+
+                </div><!-- End Faq Column-->
+                <div class="text-center">
+                    {{#if (urlHelper currentUrl '/')}}
+                    <a href="/faq" class="btn btn-primary w-50 m-auto my-3">View All Faq Questions</a>
+                    {{/if}}
+                    {{#if (urlHelper currentUrl '/about')}}
+                    <a href="/faq" class="btn btn-primary w-50 m-auto my-3">View All Faq Questions</a>
+                    {{/if}}
+                    {{#if (urlHelper currentUrl '/doctor')}}
+                    <a href="/faq" class="btn btn-primary w-50 m-auto my-3">View All Faq Questions</a>
+                    {{/if}}
+                    {{#if (urlHelper currentUrl '/appointment')}}
+                    <a href="/faq" class="btn btn-primary w-50 m-auto my-3">View All Faq Questions</a>
+                    {{/if}}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section><!-- /Faq Section -->
